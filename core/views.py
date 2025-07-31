@@ -1,4 +1,5 @@
 from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import random
 
@@ -31,5 +32,6 @@ def repair_bay_view(request):
     """
     return HttpResponse(html)
 
+@csrf_exempt
 def teapot_view(request):
     return HttpResponse("I'm a teapot", status=418)
